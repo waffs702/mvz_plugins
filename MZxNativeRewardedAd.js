@@ -68,6 +68,9 @@
 
     const callbackKey = 'showRewardedAd';
     MVZxNativeManager.setCallback(callbackKey, (result) => {
+      // replay bgm
+      $gameSystem.replayBgm();
+
       if (result === 'onCanceled') {
         if (canceldShowCommonEventId) $gameTemp.reserveCommonEvent(canceldShowCommonEventId);
         return;
@@ -82,8 +85,12 @@
         if (rewardedCommonEventId) $gameTemp.reserveCommonEvent(rewardedCommonEventId);
         return;
       }
-      
     });
+
+    // save bgm
+    $gameSystem.saveBgm();
+    AudioManager.stopAll();
+
     if (MVZxNativeManager.isAndroid()) {
       const handler = MVZxNativeManager.AndroidHandler();
       handler.showRewardedAd(callbackKey);
