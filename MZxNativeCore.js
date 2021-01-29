@@ -70,3 +70,7 @@ MVZxNativeManager.nativeCallback = function(arg, key) {
 MVZxNativeManager.AndroidHandler = function() {
   return window.MVZxAndroidHandlers;
 }
+
+MVZxNativeManager.iOSHandler = function() {
+  return window.webkit.messageHandlers;
+}

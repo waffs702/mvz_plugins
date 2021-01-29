@@ -97,7 +97,9 @@
       return;
     }
     if (MVZxNativeManager.isiOS()) {
-      // TODO
+      const handler = MVZxNativeManager.iOSHandler();
+      const params = { k:callbackKey };
+      handler.showRewardedAd.postMessage(JSON.stringify(params));
     }
   });
 
