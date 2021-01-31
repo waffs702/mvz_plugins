@@ -15,3 +15,4 @@ Webブラウザ向け、Windows/Mac向けとしては動作しませんのでご
 |--------|--------|
 | [MVZxNativeCore.js](https://raw.githubusercontent.com/waffs702/mvz_plugins/main/MZxNativeCore.js) | 広告表示やTwitter投稿連携時に必要となる基本プラグイン |
 | [MZxNativeRewardedAd.js](https://raw.githubusercontent.com/waffs702/mvz_plugins/main/MZxNativeRewardedAd.js) | リワード広告の再生と報酬受け取りのコモンイベント設定プラグイン |
+| [MZxNativeShare.js](https://raw.githubusercontent.com/waffs702/mvz_plugins/main/MZxNativeShare.js) | ゲーム画面のスクリーンショットを撮影し、TwitterやFacebook等へのSNSシェアするプラグイン |
