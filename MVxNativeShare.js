@@ -60,12 +60,14 @@
   const pluginName = 'MVxNativeShare';
   const _Game_Interpreter_pluginCommand = Game_Interpreter.prototype.pluginCommand;
 
-  Game_Interpreter.prototype.pluginCommand = (command, args) => {
-    _Game_Interpreter_pluginCommand.call(this, command, args);
-    if (command !== pluginName) {
-      return; 
+  Game_Interpreter.prototype.pluginCommand = function(command, args) {
+    _Game_Interpreter_pluginCommand.apply(this, arguments);
+    if (command === pluginName) {
+      this.pluginCommandMVxNativeShare(command, args);
     }
+  };
 
+  Game_Interpreter.prototype.pluginCommandMVxNativeShare = function(command, args) {
     const isTakeScreenshot = (Number(args[0]) === 1);
     const shareTextVariable = Number(args[1]);
     let base64Data = '';

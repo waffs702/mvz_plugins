@@ -44,12 +44,14 @@
   const pluginName = 'MVxNativeRewardedAd';
   const _Game_Interpreter_pluginCommand = Game_Interpreter.prototype.pluginCommand;
 
-  Game_Interpreter.prototype.pluginCommand = (command, args) => {
-    _Game_Interpreter_pluginCommand.call(this, command, args);
-    if (command !== pluginName) {
-      return; 
+  Game_Interpreter.prototype.pluginCommand = function(command, args) {
+    _Game_Interpreter_pluginCommand.apply(this, arguments);
+    if (command === pluginName) {
+      this.pluginCommandMVxNativeRewardedAd(command, args);
     }
+  };
 
+  Game_Interpreter.prototype.pluginCommandMVxNativeRewardedAd = function(command, args) {
     const rewardedCommonEventId = Number(args[0]);
     const failedShowCommonEventId = Number(args[1]);
     const canceldShowCommonEventId = Number(args[2]);

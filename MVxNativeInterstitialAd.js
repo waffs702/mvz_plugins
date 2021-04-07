@@ -40,12 +40,14 @@
   const pluginName = 'MVxNativeInterstitialAd';
   const _Game_Interpreter_pluginCommand = Game_Interpreter.prototype.pluginCommand;
 
-  Game_Interpreter.prototype.pluginCommand = (command, args) => {
-    _Game_Interpreter_pluginCommand.call(this, command, args);
-    if (command !== pluginName) {
-      return; 
+  Game_Interpreter.prototype.pluginCommand = function(command, args) {
+    _Game_Interpreter_pluginCommand.apply(this, arguments);
+    if (command === pluginName) {
+      this.pluginCommandMVxNativeInterstitialAd(command, args);
     }
+  };
 
+  Game_Interpreter.prototype.pluginCommandMVxNativeInterstitialAd = function(command, args) {
     const succeededCommonEventId = Number(args[0]);
     const failedShowCommonEventId = Number(args[1]);
 
