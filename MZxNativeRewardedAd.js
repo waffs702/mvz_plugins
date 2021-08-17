@@ -1,6 +1,6 @@
 //=============================================================================
 // MZxNativeRewardedAd.js
-// ver 1.0
+// ver 1.1
 //=============================================================================
 
 /*:ja
@@ -52,7 +52,7 @@
  * @text 失敗コモンイベント番号
  * @desc リワード広告の再生が失敗したときに呼び出すコモンイベント番号
  * 
- * @arg canceldShowCommonEventId
+ * @arg canceledShowCommonEventId
  * @type common_event
  * @default 0
  * @text キャンセルコモンイベント番号
@@ -64,15 +64,12 @@
   PluginManager.registerCommand(pluginName, 'show', (args) => {
     const rewardedCommonEventId = Number(args.rewardedCommonEventId);
     const failedShowCommonEventId = Number(args.failedShowCommonEventId);
-    const canceldShowCommonEventId = Number(args.canceldShowCommonEventId);
+    const canceledShowCommonEventId = Number(args.canceledShowCommonEventId);
 
     const callbackKey = 'showRewardedAd';
     MVZxNativeManager.setCallback(callbackKey, (result) => {
-      // replay bgm
-      $gameSystem.replayBgm();
-
       if (result === 'onCanceled') {
-        if (canceldShowCommonEventId) $gameTemp.reserveCommonEvent(canceldShowCommonEventId);
+        if (canceledShowCommonEventId) $gameTemp.reserveCommonEvent(canceledShowCommonEventId);
         return;
       }
 
@@ -86,10 +83,6 @@
         return;
       }
     });
-
-    // save bgm
-    $gameSystem.saveBgm();
-    AudioManager.stopAll();
 
     if (MVZxNativeManager.isAndroid()) {
       const handler = MVZxNativeManager.AndroidHandler();

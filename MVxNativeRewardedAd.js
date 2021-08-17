@@ -1,6 +1,6 @@
 //=============================================================================
 // MVxNativeRewardedAd.js
-// ver 1.0
+// ver 1.1
 //=============================================================================
 
 /*:ja
@@ -54,15 +54,12 @@
   Game_Interpreter.prototype.pluginCommandMVxNativeRewardedAd = function(command, args) {
     const rewardedCommonEventId = Number(args[0]);
     const failedShowCommonEventId = Number(args[1]);
-    const canceldShowCommonEventId = Number(args[2]);
+    const canceledShowCommonEventId = Number(args[2]);
 
     const callbackKey = 'showRewardedAd';
     MVZxNativeManager.setCallback(callbackKey, (result) => {
-      // replay bgm
-      $gameSystem.replayBgm();
-
       if (result === 'onCanceled') {
-        if (canceldShowCommonEventId) $gameTemp.reserveCommonEvent(canceldShowCommonEventId);
+        if (canceledShowCommonEventId) $gameTemp.reserveCommonEvent(canceledShowCommonEventId);
         return;
       }
 
@@ -76,10 +73,6 @@
         return;
       }
     });
-
-    // save bgm
-    $gameSystem.saveBgm();
-    AudioManager.stopAll();
 
     if (MVZxNativeManager.isAndroid()) {
       const handler = MVZxNativeManager.AndroidHandler();

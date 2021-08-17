@@ -1,6 +1,6 @@
 //=============================================================================
 // MZxNativeInterstitialAd.js
-// ver 1.0
+// ver 1.1
 //=============================================================================
 
 /*:ja
@@ -62,9 +62,6 @@
 
     const callbackKey = 'showInterstitialAd';
     MVZxNativeManager.setCallback(callbackKey, (result) => {
-      // replay bgm
-      $gameSystem.replayBgm();
-
       if (result === 'onFailed') {
         if (failedShowCommonEventId) $gameTemp.reserveCommonEvent(failedShowCommonEventId);
         return;
@@ -75,10 +72,6 @@
         return;
       }
     });
-
-    // save bgm
-    $gameSystem.saveBgm();
-    AudioManager.stopAll();
 
     if (MVZxNativeManager.isAndroid()) {
       const handler = MVZxNativeManager.AndroidHandler();
