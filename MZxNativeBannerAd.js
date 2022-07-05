@@ -5,7 +5,7 @@
 
 /*:ja
  * @target MZ
- * @plugindesc [MZ向け]リワード広告の再生
+ * @plugindesc [MZ向け]バナー広告表示
  * @author waff
  * @url https://github.com/waffs702/mvz_plugins
  *
