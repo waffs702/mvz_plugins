@@ -5,7 +5,7 @@
 
 /*:ja
  * @target MZ
- * @plugindesc インタースティシャル広告の表示
+ * @plugindesc [MZ向け]インタースティシャル広告の表示
  * @author waff
  * @url https://github.com/waffs702/mvz_plugins
  *

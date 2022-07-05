@@ -5,7 +5,7 @@
 
 /*:ja
  * @target MZ
- * @plugindesc ブラウザの起動
+ * @plugindesc [MZ向け]ブラウザの起動
  * @author waff
  * @url https://github.com/waffs702/mvz_plugins
  *

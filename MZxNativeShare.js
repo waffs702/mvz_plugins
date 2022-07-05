@@ -5,7 +5,7 @@
 
 /*:ja
  * @target MZ
- * @plugindesc ゲーム画面スクリーンショットとテキストのシェア
+ * @plugindesc [MZ向け]ゲーム画面スクリーンショットとテキストのシェア
  * @author waff
  * @url https://github.com/waffs702/mvz_plugins
  *

@@ -5,7 +5,7 @@
 
 /*:ja
  * @target MZ
- * @plugindesc iOS/Androidとの連携するための基本プラグイン
+ * @plugindesc [MZ/MV向け]iOS/Androidとの連携するための基本プラグイン
  * @author waff
  * @url https://github.com/waffs702/mvz_plugins
  *
